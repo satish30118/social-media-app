@@ -66,8 +66,8 @@ const Login = () => {
               <input
                 type="email"
                 id="userId"
-                maxLength={10}
-                minLength={10}
+                maxLength={50}
+                minLength={5}
                 placeholder="Email ID"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
@@ -108,6 +108,7 @@ const Login = () => {
             </div>
 
             <div className="forgot_password">
+              <span>Forgot Password? - </span>
               <Link
                 to="/account/forgot-password"
                 style={{
@@ -117,10 +118,10 @@ const Login = () => {
                   color: "darkblue",
                 }}
               >
-                Forgot Password
+                Reset
               </Link>
             </div>
-            <div>
+            <div  className="forgot_password">
               <span> New User? - </span>
               <Link
                 to="/account-registration"
