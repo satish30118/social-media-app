@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Post from "../../components/Post";
+import NewPost from "../newPost/NewPost";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ export default function Home() {
       </Helmet>
       <div className="home_page">
         <Post />
+        <NewPost/>
       </div>
     </Layout>
   );

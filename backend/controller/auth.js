@@ -9,6 +9,7 @@ const register = async (req, res) => {
     if (req.file) {
       var picturePath = req.file?.path;
     }
+    console.log(req.body)
 
     const salt = 10;
     const passwordHash = await bcrypt.hash(password, salt);
@@ -19,9 +20,11 @@ const register = async (req, res) => {
       password: passwordHash,
       picturePath,
     }).save();
-
+    console.log("jjj" + newUser)
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_KEY);
-    delete newUser.password;
+    delete newUser?.password;
+
+    console.log(newUser)
 
     res.status(201).json({
       success: true,

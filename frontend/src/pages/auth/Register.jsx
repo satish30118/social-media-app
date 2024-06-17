@@ -15,29 +15,38 @@ const Register = () => {
   const [name, setName] = useState();
   const [password, setPassword] = useState();
   const [cpassword, setCPassword] = useState();
+  const [picture, setPicture] = useState();
   const [animation, setAnimation] = useState(false);
   const navigate = useNavigate();
 
   const sendData = async (e) => {
     e.preventDefault();
     if (!name || !email || !password) {
-      return toast.warn("Enter Name, Email Id and password.");
+      return toast.warn("Enter Name, Email Id and password");
+    }
+    if (!picture) {
+      return toast.warn("Upload Profile Picture");
     }
     if (password !== cpassword) {
       return toast.warn("Enter password and confirm password not matched.");
     }
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("picture", picture);
+
     try {
       setAnimation(true);
       const { data } = await axios.post(`api/v1/auth/register`, {
-        name,
-        email,
-        password,
+        formData,
       });
       setAnimation(false);
 
       if (data?.success) {
         setAuth({ ...auth, user: data?.details, token: data?.token });
-        localStorage.setItem("ACCSATDEV_USER-INFO", JSON.stringify(data));
+        localStorage.setItem("TANGLE_USER_DET_SAT", JSON.stringify(data));
 
         // Redirect to Dashboard Page //
         navigate(`/`);
@@ -118,6 +127,23 @@ const Register = () => {
               >
                 {showPassword ? "Hide Password" : "Show Password"}
               </p>
+            </div>
+            <div>
+              <div
+                style={{
+                  color: "rgb(3, 10, 88)",
+                  textAlign: "left",
+                  fontWeight: "600",
+                  marginTop: "10px",
+                }}
+              >
+                UPLOAD PROFILE PICTURE
+              </div>
+              <input
+                type="file"
+                id="password"
+                onChange={(e) => setPicture(e.target.files[0])}
+              />
             </div>
 
             <div className="form_btn">
