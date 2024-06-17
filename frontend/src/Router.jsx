@@ -5,6 +5,7 @@ import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import Home from "./pages/home/Home";
 import Error from "./layouts/Error";
+import NewPost from "./pages/newPost/NewPost";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
   },
   {
     id: 5,
+    path: "/new-post",
+    element: <NewPost />,
+  },
+  {
+    id: 7,
     path: "*",
     element: <Error />,
   },
