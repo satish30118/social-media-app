@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../../layouts/Layout";
-import profile from "../../assets/img/bg.jpg"
-import  "../../assets/css/dashboard.css"
+import profile from "../../assets/img/bg.jpg";
+import "../../assets/css/dashboard.css";
+import axios from "axios";
+import { useAuth } from "../../ContextApi/authContext";
 
 const UserDashboard = () => {
+  const [auth] = useAuth();
+  const getData = async () => {
+    const { data } = await axios.get(`api/v1/user/getuser/${auth?.user?._id}`);
+  };
+
+  useEffect(() => {
+    getData();
+  });
   return (
     <Layout>
       <div className="dashboard">
