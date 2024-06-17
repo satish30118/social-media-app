@@ -1,0 +1,36 @@
+header {
+    background-color: rgb(5, 47, 82);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    color: white;
+    height: 50px;
+
+    .header-left {
+        font-weight: 900;
+        font-size: 26px;
+    }
+
+    .header-right {
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+}
+
+.layout {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+
+    .layout-child {
+        min-height: 90vh;
+        border: 4px solid rgb(5, 47, 82);
+        border-top: none;
+        background-color: lightgray;
+    }
+}

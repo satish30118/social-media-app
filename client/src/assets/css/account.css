@@ -1,0 +1,79 @@
+.account_page {
+    box-sizing: border-box;
+    padding: 20px 10px;
+}
+
+.account_page form {
+    width: 100%;
+    max-width: 350px;
+    border: 2px solid rgb(255, 255, 255);
+    margin: 10px auto;
+    text-align: center;
+    border-radius: 6px;
+    background-color: white;
+    padding: 30px;
+}
+
+.account_page form h2 {
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 20px;
+    color: darkblue;
+}
+
+.account_page input {
+    width: 100%;
+    border: 2px solid lightgray;
+    border-radius: 7px;
+    outline: none;
+    font-size: 17px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    /* background: transparent; */
+    /* color: rgb(248, 251, 251); */
+}
+
+::placeholder {
+    color: rgb(147, 138, 138);
+}
+
+.form_btn {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.btn {
+    width: 48%;
+    cursor: pointer;
+    padding: 10px 30px;
+    border-radius: 6px;
+    border: none;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.reset_btn {
+    background-color: darkred;
+}
+
+.register_btn {
+    background-color: blue;
+}
+
+.password-toggle {
+    text-align: right;
+    padding: 3px 9px;
+    font-size: 17px;
+    cursor: pointer;
+    color: rgb(3, 10, 88);
+    font-weight: 570;
+}
+
+@media screen and (max-width:500px){
+    .account_page form {
+        padding: 30px 20px;
+    }
+}

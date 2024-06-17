@@ -1,9 +1,10 @@
-import UserDashboard from "./Pages/Dashboard/UserDashboard";
-import Login from "./Pages/auth/Login";
-import Register from "./Pages/auth/Register";
-import Home from "./Pages/home/Home";
-import Error from "./layouts/Error";
+
 import { createBrowserRouter } from "react-router-dom";
+import UserDashboard from "./pages/Dashboard/UserDashboard";
+import Register from "./pages/auth/Register";
+import Login from "./pages/auth/Login";
+import Home from "./pages/home/Home";
+import Error from "./layouts/Error";
 
 const router = createBrowserRouter([
   {

@@ -1,0 +1,65 @@
+.error-page{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 30px;
+    padding-bottom:20vh;
+    background: lightgray;
+    flex-direction: column;
+}
+.error-page-heading{
+    font-size: 200px;
+    font-weight:550 ;
+    color:white;
+    background: linear-gradient(to bottom, darkblue,red);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.error-page-404{
+    font-size: 30px;
+    font-weight: 570;
+    color: rgb(252, 253, 254);
+    margin: 20px 0;
+}
+.error-page-btn{
+    background-color:blue;
+    color: white;
+    font-weight: 600;
+    padding: 15px 34px;
+    border: none;
+    cursor:pointer;
+    border-radius: 30px;
+    font-size: 15px;
+}
+
+@media only screen  and (max-width:1000px){
+    .error-page-heading{
+        font-size: 180px;
+    }
+}
+
+@media only screen  and (max-width:750px){
+    .error-page-heading{
+        font-size: 160px;
+    }
+}
+@media only screen  and (max-width:550px){
+    .error-page-heading{
+        font-size: 130px;
+    }
+    .error-page-404{
+        font-size: 25px;
+    }
+}
+@media only screen  and (max-width:350px){
+    .error-page-heading{
+        font-size: 90px;
+    }
+    .error-page-404{
+        font-size: 20px;
+    }
+}
