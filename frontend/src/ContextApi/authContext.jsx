@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
   axios.defaults.baseURL = process.env.REACT_APP_API;
 
   useEffect(() => {
-    const data = localStorage.getItem("ACCSATDEV_USER-INFO");
+    const data = localStorage.getItem("TANGLE_USER_DET_SAT");
     if (data) {
       const parsedData = JSON.parse(data);
       setAuth({ ...auth, user: parsedData.details, token: parsedData.token });

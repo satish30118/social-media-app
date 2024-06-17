@@ -9,22 +9,20 @@ const register = async (req, res) => {
     if (req.file) {
       var picturePath = req.file?.path;
     }
-    console.log(req.body)
+  
 
     const salt = 10;
     const passwordHash = await bcrypt.hash(password, salt);
 
-    const newUser = new User({
+    const newUser = await User({
       name,
       email,
       password: passwordHash,
       picturePath,
     }).save();
-    console.log("jjj" + newUser)
+    
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_KEY);
     delete newUser?.password;
-
-    console.log(newUser)
 
     res.status(201).json({
       success: true,
@@ -34,6 +32,7 @@ const register = async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
+    console.log(err)
   }
 };
 
