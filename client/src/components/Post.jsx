@@ -1,15 +1,21 @@
 import React from "react";
 import "../assets/css/components.css";
 import img from "../assets/img/bg.jpg";
+import { Link } from "react-router-dom";
 
 const Post = () => {
   return (
     <div className="post_comp">
       <div className="post_sender">
-        <div>
-          <img src={img} alt="" />
+        <div style={{display:"flex", alignItems:"center"}}>
+          <div>
+            <img src={img} alt="" />
+          </div>
+          <div>Satish Maurya</div>
         </div>
-        <div>Satish Maurya</div>
+        <div>
+          <Link>Follow</Link>
+        </div>
       </div>
       <hr />
       <div className="post_file">
@@ -22,6 +28,9 @@ const Post = () => {
         voluptates enim harum nulla ab quis officiis incidunt magnam, cum,
         perspiciatis maiores corporis omnis. Nihil, accusamus et, deleniti
         possimus suntatae.
+      </div>
+      <div className="post_btn">
+
       </div>
     </div>
   );

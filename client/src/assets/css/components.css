@@ -6,7 +6,7 @@
     .post_sender {
         display: flex;
         align-items: center;
-        /* justify-content: space-around; */
+        justify-content: space-between;
         padding: 5px 20px 0;
 
         img {
@@ -16,12 +16,14 @@
             border: 3px solid gold;
             margin-right: 10px;
         }
+
+        a {
+            text-decoration: none;
+        }
     }
 
     .post_file img {
         width: 100%;
-        /* height: 200px; */
-        /* border-radius: 6px; */
     }
 
     .post_content {
@@ -30,5 +32,8 @@
         font-size: 15px;
         font-weight: 600;
         color: rgb(82, 81, 79);
+    }
+    .post_btn{
+
     }
 }
