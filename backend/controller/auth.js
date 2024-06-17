@@ -20,11 +20,13 @@ const register = async (req, res) => {
       picturePath,
     }).save();
 
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_KEY);
     delete newUser.password;
 
     res.status(201).json({
       success: true,
       message: "Register successfull!!",
+      token,
       details: newUser,
     });
   } catch (err) {
@@ -39,17 +41,17 @@ const login = async (req, res) => {
     const user = await User.findOne({ email: email });
     if (!user)
       return res
-        .status(400)
+        .status(203)
         .json({ success: false, message: "User does not exist. " });
 
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch)
       return res
-        .status(400)
+        .status(203)
         .json({ success: false, message: "Invalid credentials. " });
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ id: user._id }, process.env.JWT_KEY);
     delete user.password;
     res
       .status(200)

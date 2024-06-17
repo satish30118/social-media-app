@@ -18,7 +18,7 @@ const Sppinner = () => {
     >
       <div>
         <Circles />
-        <p style={{ fontWeight: "700" }}>Wait...</p>
+        <p style={{ fontWeight: "700" }}>Please Wait...</p>
       </div>
     </div>
   );
