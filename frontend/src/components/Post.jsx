@@ -3,7 +3,7 @@ import "../assets/css/components.css";
 import img from "../assets/img/bg.jpg";
 import { Link } from "react-router-dom";
 
-const Post = () => {
+const Post = ({data}) => {
   return (
     <div className="post_comp">
       <div className="post_sender">

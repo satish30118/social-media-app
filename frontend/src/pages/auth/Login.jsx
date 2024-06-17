@@ -31,7 +31,7 @@ const Login = () => {
 
       if (data?.success) {
         setAuth({ ...auth, user: data?.details, token: data?.token });
-        localStorage.setItem("ACCSATDEV_USER-INFO", JSON.stringify(data));
+        localStorage.setItem("TANGLE_USER_DET_SAT", JSON.stringify(data));
 
         // Redirect to Dashboard Page //
         navigate(`/`);
