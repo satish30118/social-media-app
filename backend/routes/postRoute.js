@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /* CREATE NEW */
-router.post("/addposts", authorization, upload.single("picture"), createPost);
+router.post("/addpost", authorization, upload.single("picture"), createPost);
 
 /* READ */
 router.get("/getposts", authorization, getFeedPosts);
