@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 
 // DIFFIRENT ROUTES //
+const authRoute = require("./routes/authRoute");
 
 const app = express();
 const dotenv = require("dotenv").config(); // DOTENV FILE
@@ -12,12 +13,13 @@ const connectDB = require("./database/dbconnect"); // DB CONNECTION
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
-app.use("/upload", express.static("upload"))
+app.use("/upload", express.static("upload"));
 
 // DATA BASE CONNECTION //
 connectDB(); // calling DB Function
 
 // Routes //
+app.use("/api/v1/auth", authRoute);
 
 // DEFAULT ROUTE //
 app.get("/", (req, res) => {

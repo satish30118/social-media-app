@@ -1,6 +1,6 @@
-import express from "express";
-import { login } from "../controllers/auth.js";
-import { register } from "../controller/auth.js";
+const express = require("express");
+const { register, login } = require("../controller/auth");
+const multer = require("multer")
 
 const router = express.Router();
 
@@ -18,4 +18,4 @@ const upload = multer({ storage });
 router.post("/register", upload.single("picture"), register);
 router.post("/login", login);
 
-export default router;
+module.exports = router;
