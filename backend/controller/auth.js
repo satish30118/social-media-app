@@ -16,13 +16,15 @@ const register = async (req, res) => {
     const newUser = new User({
       name,
       email,
-      password,
+      password: passwordHash,
       picturePath,
     }).save();
 
+    delete newUser.password;
+
     res.status(201).json({
       success: true,
-      message: "Register success",
+      message: "Register successfull!!",
       details: newUser,
     });
   } catch (err) {

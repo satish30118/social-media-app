@@ -56,10 +56,10 @@ const Register = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Account Register - Tangle</title>
+        <title>Account Register - Apna Tangle</title>
         <meta
           name="keywords"
-          content="account Register, tangle, chat with friends and relatives "
+          content="account Register,Apna, apna tangle, tangle, chat with friends and relatives "
         />
       </Helmet>
       <div className="account_page">
@@ -83,8 +83,8 @@ const Register = () => {
               <input
                 type="email"
                 id="userId"
-                maxLength={5}
-                minLength={60}
+                maxLength={60}
+                minLength={5}
                 placeholder="Email ID"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
