@@ -4,6 +4,8 @@ const cors = require("cors");
 
 // DIFFIRENT ROUTES //
 const authRoute = require("./routes/authRoute");
+const userRoute = require("./routes/userRoute");
+const postRoute = require("./routes/postRoute");
 
 const app = express();
 const dotenv = require("dotenv").config(); // DOTENV FILE
@@ -20,6 +22,9 @@ connectDB(); // calling DB Function
 
 // Routes //
 app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/user", userRoute);
+app.use("/api/v1/post", postRoute);
+
 
 // DEFAULT ROUTE //
 app.get("/", (req, res) => {
