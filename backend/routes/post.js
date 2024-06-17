@@ -4,15 +4,15 @@ const {
   getUserPosts,
   likePost,
 } = require("../controller/post.js");
-const { verifyToken } = require("../middleware/auth.js");
+const authorization = require("../middleware/authorization.js");
 
 const router = express.Router();
 
 /* READ */
-router.get("/getposts", verifyToken, getFeedPosts);
-router.get("/:userId/posts", verifyToken, getUserPosts);
+router.get("/getposts", authorization, getFeedPosts);
+router.get("/:userId/posts", authorization, getUserPosts);
 
 /* UPDATE */
-router.patch("/:id/like", verifyToken, likePost);
+router.patch("/:id/like", authorization, likePost);
 
 module.exports = router;
