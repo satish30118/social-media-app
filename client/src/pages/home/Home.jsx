@@ -3,6 +3,7 @@ import "../../assets/css/home.css";
 import Layout from "../../layouts/Layout";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Post from "../../components/Post";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -15,7 +16,9 @@ export default function Home() {
           content="Social media, tangle, connect, friends, chat"
         />
       </Helmet>
-      <div className="home-page">Home page</div>
+      <div className="home_page">
+        <Post />
+      </div>
     </Layout>
   );
 }
