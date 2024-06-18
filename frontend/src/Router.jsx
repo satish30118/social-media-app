@@ -1,4 +1,3 @@
-
 import { createBrowserRouter } from "react-router-dom";
 import UserDashboard from "./pages/Dashboard/UserDashboard";
 import Register from "./pages/auth/Register";
@@ -6,6 +5,7 @@ import Login from "./pages/auth/Login";
 import Home from "./pages/home/Home";
 import Error from "./layouts/Error";
 import NewPost from "./pages/newPost/NewPost";
+import ForgotPassword from "./pages/auth/forgotPassword/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +32,11 @@ const router = createBrowserRouter([
     id: 5,
     path: "/new-post",
     element: <NewPost />,
+  },
+  {
+    id: 6,
+    path: "/account/forgot-password",
+    element: <ForgotPassword />,
   },
   {
     id: 7,

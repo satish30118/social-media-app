@@ -25,7 +25,7 @@ export default function Home() {
       </div>
 
       <div className="h_btn">
-        <Link>
+        <Link to={"/dashboard"}>
           <img
             src={auth?.user?.picturePath ? imgPath : userProfile}
             style={{
@@ -43,7 +43,7 @@ export default function Home() {
         </Link>
 
         <Link to={"/friend-message"}>
-          <i className="fa-solid fa-message" />
+          <i className="fa-regular fa-comment" />
         </Link>
       </div>
     </Layout>

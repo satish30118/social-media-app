@@ -53,8 +53,8 @@ export default function Header() {
                     <img
                       src={auth?.user?.picturePath ? imgPath : userProfile}
                       style={{
-                        width: "45px",
-                        height: "45px",
+                        width: "40px",
+                        height: "40px",
                         borderRadius: "50%",
                         border: "2px solid white",
                       }}
