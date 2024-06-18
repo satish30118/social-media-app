@@ -1,7 +1,7 @@
 import React from "react";
 import "../assets/css/header.css";
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import logo from "../assets/img/logo1.jpg";
+import logo from "../assets/img/logo.jpg";
 import { useAuth } from "../ContextApi/authContext";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -32,7 +32,7 @@ export default function Header() {
     <>
       <header>
         <div className="header-left">
-          <Link>
+          <Link to={"/"}>
             <img src={logo} alt="" />
           </Link>
         </div>

@@ -43,7 +43,7 @@ export default function Home() {
         </Link>
 
         <Link to={"/friend-message"}>
-          <i className="fa-regular fa-comment" />
+          <i className="fa-regular fa-comments" />
         </Link>
       </div>
     </Layout>
