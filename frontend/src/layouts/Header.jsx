@@ -44,7 +44,11 @@ export default function Header() {
                   <Button
                     variant="contained"
                     {...bindTrigger(popupState)}
-                    style={{ padding: " 2px 17px" }}
+                    style={{
+                      padding: "3px",
+                      background: "transparent",
+                      border: "none",
+                    }}
                   >
                     <img
                       src={auth?.user?.picturePath ? imgPath : userProfile}
@@ -62,7 +66,7 @@ export default function Header() {
                     <MenuItem onClick={popupState.close}>
                       <li>
                         <NavLink
-                          to={`/dashboard}`}
+                          to={`/dashboard`}
                           style={{ textDecoration: "none" }}
                         >
                           Dashboard{" "}
