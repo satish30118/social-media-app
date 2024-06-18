@@ -38,9 +38,9 @@ header {
     margin: 0 auto;
 
     .layout-child {
-        height: 93vh;
-        border: 4px solid rgb(5, 47, 82);
-        border-top: none;
+        height: 92vh;
+        border-left: 4px solid rgb(5, 47, 82);
+        border-right: 4px solid rgb(5, 47, 82);
         background-color: lightgray;
         overflow: auto;
     }
