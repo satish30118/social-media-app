@@ -55,11 +55,11 @@ const UserDashboard = () => {
               <button
                 className="btn"
                 title="Edit Profile"
-                style={{ background: "blue" }}
+                style={{ background: "transparent", margin: "0", padding: "0" }}
               >
                 <i
                   className="fa-solid fa-pen-to-square"
-                  style={{ marginRight: "6px" }}
+                  style={{ marginLeft: "10px", color: "blue" }}
                 />
               </button>
             </div>
@@ -67,11 +67,15 @@ const UserDashboard = () => {
               <button
                 className="btn"
                 title="Delete Account"
-                style={{ background: "blue" }}
+                style={{ background: "transparent", margin: "0", padding: "0" }}
               >
                 <i
                   className="fa-solid fa-trash-can"
-                  style={{ color: "red", fontSize: "20px" }}
+                  style={{
+                    marginLeft: "10px",
+                    color: "red",
+                    fontSize: "20px",
+                  }}
                 />
               </button>
             </div>
