@@ -42,7 +42,7 @@ export default function Home() {
             <Sppinner />
           ) : (
             posts?.map((item) => (
-              <div key={item?._id}>
+              <div key={item?._id}  data-aos="fade-up">
                 <Post data={item} />
               </div>
             ))

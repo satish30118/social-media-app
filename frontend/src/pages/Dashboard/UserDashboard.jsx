@@ -97,6 +97,7 @@ const UserDashboard = () => {
               <div
                 style={{ maxWidth: "410px", margin: "0 auto" }}
                 key={item?._id}
+                 data-aos="fade-up"
               >
                 <Post data={item} />
               </div>
