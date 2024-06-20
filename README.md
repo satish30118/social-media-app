@@ -69,7 +69,7 @@ deploy Link: [(https://apnatangle.onrender.com/)]
 
 ## Documentation
 
-Documentation Link: [(https://drive.google.com/file/d/1KsBnCMPj38hj8HzWPSf1IE2BrGdbyduk/view?usp=drive_link)]
+Documentation Link: [(https://docs.google.com/document/d/1uoOA3_IYIEJW1g44KsMWx3F3sIyYVGgf/edit?usp=sharing&ouid=113073976967163913013&rtpof=true&sd=true)]
 
 ## Short Video Link
 
