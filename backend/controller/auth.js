@@ -10,6 +10,17 @@ const register = async (req, res) => {
       var picturePath = req.file?.path;
     }
 
+
+    // Existing User //
+
+    const userExist = await User.find({email});
+    if(userExist){
+      res.status(200).json({
+        success: false,
+        message: "You have already registered so login",
+        details: userExist,
+      });
+    }
     const salt = 10;
     const passwordHash = await bcrypt.hash(password, salt);
 
