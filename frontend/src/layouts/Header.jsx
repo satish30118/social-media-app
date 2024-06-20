@@ -1,7 +1,7 @@
 import React from "react";
 import "../assets/css/header.css";
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import logo from "../assets/img/logo.jpg";
+import logo from "../assets/img/logo2.png";
 import { useAuth } from "../ContextApi/authContext";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -10,13 +10,14 @@ import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import { toast } from "react-toastify";
 import userProfile from "../assets/img/bg.jpg";
 
+
 export default function Header() {
   const [auth, setAuth] = useAuth();
   const imgPath = `${process.env.REACT_APP_API}/${auth?.user?.picturePath}`;
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("TANGLE_USER_DET_SAT");
+    localStorage.removeItem("apnatangle");
     setAuth({
       user: null,
       token: "",
@@ -35,6 +36,7 @@ export default function Header() {
           <Link to={"/"}>
             <img src={logo} alt="" />
           </Link>
+          <h4 className="c_logo">Apna Tangle</h4>
         </div>
         <div className="header-right">
           {auth?.token ? (

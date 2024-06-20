@@ -46,7 +46,7 @@ const Register = () => {
 
       if (data?.success) {
         setAuth({ ...auth, user: data?.details, token: data?.token });
-        localStorage.setItem("TANGLE_USER_DET_SAT", JSON.stringify(data));
+        localStorage.setItem("apnatangle", JSON.stringify(data));
 
         // Redirect to Dashboard Page //
         navigate(`/`);

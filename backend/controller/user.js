@@ -13,4 +13,35 @@ const getUser = async (req, res) => {
   }
 };
 
-module.exports = getUser;
+const getBySearch = async (req, res) => {
+  try {
+    const { name } = req.params;
+    const searchedUsers = await User.aggregate([
+      {
+        $search: {
+          index: "userSearch",
+          text: {
+            query: name,
+            path: {
+              wildcard: "*",
+            },
+            fuzzy: {},
+          },
+        },
+      },
+    ]);
+    res.status(200).send({
+      success:true,
+      message: `All users with  ${name}`,
+      details: searchedUsers,
+    });
+  } catch (error) {
+    console.log(`ERROR IN GETTING Single search ${error}`);
+    res.status(500).send({
+      success: false,
+      message: "Server Problem, Please try again!",
+    });
+  }
+};
+
+module.exports = { getUser, getBySearch };

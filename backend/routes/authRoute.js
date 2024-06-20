@@ -1,6 +1,7 @@
 const express = require("express");
 const { register, login } = require("../controller/auth");
-const multer = require("multer")
+const multer = require("multer");
+const authorization = require("../middleware/authorization");
 
 const router = express.Router();
 
@@ -18,5 +19,11 @@ const upload = multer({ storage });
 
 router.post("/register", upload.single("picture"), register);
 router.post("/login", login);
+router.get("/private-route", authorization, (req, res) => {
+  res.status(200).send({
+    success: true,
+    message: "verified",
+  });
+});
 
 module.exports = router;

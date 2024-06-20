@@ -31,7 +31,7 @@ const Login = () => {
 
       if (data?.success) {
         setAuth({ ...auth, user: data?.details, token: data?.token });
-        localStorage.setItem("TANGLE_USER_DET_SAT", JSON.stringify(data));
+        localStorage.setItem("apnatangle", JSON.stringify(data));
 
         // Redirect to Dashboard Page //
         navigate(`/`);
@@ -50,7 +50,7 @@ const Login = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Account Login - Tangle</title>
+        <title>Account Login - Apna Tangle</title>
         <meta
           name="keywords"
           content="account login, tangle, chat with friends and relatives "

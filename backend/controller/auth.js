@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const User = require("../model/User.js");
+const { genrateToken } = require("../middleware/tokenGenration.js");
 
 /* REGISTER USER */
 const register = async (req, res) => {
@@ -9,7 +9,6 @@ const register = async (req, res) => {
     if (req.file) {
       var picturePath = req.file?.path;
     }
-  
 
     const salt = 10;
     const passwordHash = await bcrypt.hash(password, salt);
@@ -20,8 +19,8 @@ const register = async (req, res) => {
       password: passwordHash,
       picturePath,
     }).save();
-    
-    const token = jwt.sign({ id: newUser._id }, process.env.JWT_KEY);
+
+    const token = genrateToken(newUser)
     delete newUser?.password;
 
     res.status(201).json({
@@ -32,7 +31,7 @@ const register = async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
-    console.log(err)
+    console.log(err);
   }
 };
 
@@ -53,11 +52,11 @@ const login = async (req, res) => {
         .status(203)
         .json({ success: false, message: "Invalid credentials. " });
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_KEY);
+    const token = genrateToken(user)
     delete user.password;
     res
       .status(200)
-      .json({ success: false, message: "Login Success", token, details: user });
+      .json({ success: true, message: "Login Success", token, details: user });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }

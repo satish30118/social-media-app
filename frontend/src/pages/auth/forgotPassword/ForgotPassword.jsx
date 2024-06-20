@@ -3,6 +3,7 @@ import "./forgotpassword.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "../../../layouts/Layout";
+import { Helmet } from "react-helmet";
 
 export default function ForgotPassword() {
   const [sendOtpBtn, setSendOtpBtn] = useState({
@@ -171,6 +172,13 @@ export default function ForgotPassword() {
   };
   return (
     <Layout>
+      <Helmet>
+        <title>Reset Password - Apna Tangle</title>
+        <meta
+          name="keywords"
+          content="Social media, tangle, connect, friends, chat, reset password, forgot password"
+        />
+      </Helmet>
       <div className="forgot-password-page">
         <div className="forgot-password-pop">
           <h2>Reset Password</h2>

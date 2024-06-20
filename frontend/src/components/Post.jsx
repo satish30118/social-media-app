@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "../assets/css/components.css";
 import img from "../assets/img/bg.jpg";
 import { Link } from "react-router-dom";
 
-const Post = ({data}) => {
+const Post = ({ data }) => {
+  const [like, setLike] = useState(false);
+  const vdExt = ["mp4", "mov", "wmv", "flv", "webm", "avi"];
+  const handleLike = () => {
+    setLike(!like);
+  };
   return (
     <div className="post_comp">
       <div className="post_sender">
-        <div style={{display:"flex", alignItems:"center"}}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           <div>
-            <img src={img} alt="" />
+            <img
+              src={`${process.env.REACT_APP_API}/${data?.userPicturePath}`}
+              alt=""
+            />
           </div>
-          <div>Satish Maurya</div>
+          <div>{data?.name}</div>
         </div>
         <div>
           <Link>Follow</Link>
@@ -19,18 +27,34 @@ const Post = ({data}) => {
       </div>
       <hr />
       <div className="post_file">
-        <img src={img} alt="" />
+        {vdExt?.includes(data?.picturePath.split(".")[1]) ? (
+          <video
+            src={`${process.env.REACT_APP_API}/${data?.picturePath}`}
+            controls
+            autoPlay
+            muted
+          />
+        ) : (
+          <img
+            src={`${process.env.REACT_APP_API}/${data?.picturePath}`}
+            alt=""
+          />
+        )}
       </div>
 
-      <div className="post_content">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quae,
-        vero id error mollitia quo eligendi odit quidem aperiam officia autem
-        voluptates enim harum nulla ab quis officiis incidunt magnam, cum,
-        perspiciatis maiores corporis omnis. Nihil, accusamus et, deleniti
-        possimus suntatae.
-      </div>
+      <div className="post_content">{data?.description}</div>
+      <hr />
       <div className="post_btn">
-
+        <div>Posted : {data?.createdAt.split("T")[0]}</div>
+        <div>
+          <i
+            className={`fa-${like ? "solid" : "regular"} fa-heart`}
+            onClick={handleLike}
+            title="Like Post"
+          />
+          <i className="fa-regular fa-comment" title="Comment on Post" />
+          <i className="fa-solid fa-share" title="Share this Post" />
+        </div>
       </div>
     </div>
   );

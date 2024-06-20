@@ -6,6 +6,10 @@ const postSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    receiverId: {
+      type: String,
+      default: "public",
+    },
     name: {
       type: String,
       required: true,

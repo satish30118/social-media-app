@@ -2,7 +2,7 @@
     /* width: 95%; */
     padding: 20px 15px;
     /* margin: 0px auto; */
-    position: relative;
+    min-height: 90vh;
 
 
 }
@@ -18,7 +18,7 @@
     border-top: 1px solid rgb(79, 77, 77);
 
     i {
-        font-size: 35px;
+        font-size: 24px;
         font-weight: 700;
         cursor: pointer;
         color: white;

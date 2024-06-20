@@ -4,13 +4,20 @@ const User = require("../model/User.js");
 /* CREATE */
 const createPost = async (req, res) => {
   try {
-    const { userId, description, picturePath } = req.body;
+    const { userId, receiverId, description } = req.body;
+
     const user = await User.findById(userId);
+    var picturePath = "";
+    if (req.file) {
+      picturePath = req.file?.path;
+    }
+
     const newPost = new Post({
       userId,
-      name: user.name,
+      receiverId,
+      name: user?.name,
       description,
-      userPicturePath: user.picturePath,
+      userPicturePath: user?.picturePath,
       picturePath,
       likes: {},
       comments: [],
@@ -23,13 +30,16 @@ const createPost = async (req, res) => {
     });
   } catch (err) {
     res.status(404).json({ success: false, message: err.message });
+    console.log(err);
   }
 };
 
 /* READ */
 const getFeedPosts = async (req, res) => {
   try {
-    const post = await Post.find({});
+    const post = await Post.find({ receiverId: "public" }).sort({
+      createdAt: -1,
+    });
     res
       .status(200)
       .json({ success: true, message: "Post Found", details: post });
@@ -41,7 +51,26 @@ const getFeedPosts = async (req, res) => {
 const getUserPosts = async (req, res) => {
   try {
     const { userId } = req.params;
-    const post = await Post.find({ userId });
+    const post = await Post.find({ userId, receiverId: "public" }).sort({
+      createdAt: -1,
+    });
+    res
+      .status(200)
+      .json({ success: true, message: "Found successfully", details: post });
+  } catch (err) {
+    res.status(404).json({ success: false, message: err.message });
+  }
+};
+
+const getUserChats = async (req, res) => {
+  try {
+    const { userId, receiverId } = req.params;
+    const post = await Post.find({
+      $or: [
+        { userId, receiverId },
+        { userId: receiverId, receiverId: userId },
+      ],
+    });
     res
       .status(200)
       .json({ success: true, message: "Found successfully", details: post });
@@ -78,4 +107,10 @@ const likePost = async (req, res) => {
   }
 };
 
-module.exports = { createPost, getFeedPosts, getUserPosts, likePost };
+module.exports = {
+  createPost,
+  getFeedPosts,
+  getUserPosts,
+  getUserChats,
+  likePost,
+};

@@ -14,9 +14,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const data = localStorage.getItem("apnatangle");
-    console.log(data)
     if (data) {
-      console.log(data)
       const parsedData = JSON.parse(data);
       setAuth({ ...auth, user: parsedData.details, token: parsedData.token });
     }
