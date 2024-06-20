@@ -5,8 +5,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../ContextApi/authContext";
-import Loader from "../../Animations/Loader";
 import { Helmet } from "react-helmet";
+import Sppinner from "../../Animations/Sppinner";
 
 const NewPost = () => {
   const [auth] = useAuth();
@@ -59,7 +59,7 @@ const NewPost = () => {
       <div className="new_post">
         <h2>New Post</h2>
         {animation ? (
-          <Loader />
+          <Sppinner />
         ) : (
           <form>
             <div>
