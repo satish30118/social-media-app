@@ -12,7 +12,7 @@
     }
 
     .chats {
-        height: 76vh;
+        height: 68vh;
         padding: 10px;
         overflow: auto;
 
@@ -41,7 +41,7 @@
         align-items: center;
         background-color: gray;
         padding: 10px;
-        border-bottom: 3px solid rgb(5, 47, 82);
+        border-bottom: 1px solid rgb(5, 47, 82);
         border-top: 1px solid rgb(5, 47, 82);
 
 
