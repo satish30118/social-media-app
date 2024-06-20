@@ -50,10 +50,9 @@ header {
     margin: 0 auto;
 
     .layout-child {
-        height: 92vh;
+        height: 85vh;
         border-left: 4px solid rgb(5, 47, 82);
         border-right: 4px solid rgb(5, 47, 82);
-        border-bottom: 3px solid rgb(5, 47, 82);
         background-color: lightgray;
         overflow: auto;
     }
