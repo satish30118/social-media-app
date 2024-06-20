@@ -49,19 +49,6 @@ export default function Home() {
           )}
         </div>
       </div>
-
-      <div className="h_btn">
-        <Link to={"/"}>
-        <i className="fa-solid fa-home" title="Go to Home"/>
-        </Link>
-        <Link to={"/new-post"}>
-          <i className="fa-solid fa-plus h-plus" title="New Post"/>
-        </Link>
-
-        <Link to={"/user-chat"}>
-          <i className="fa-regular fa-comments" title="Chat with friends"/>
-        </Link>
-      </div>
     </Layout>
   );
 }
