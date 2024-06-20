@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "../../assets/css/home.css";
 import Layout from "../../layouts/Layout";
-import { Link, useNavigate } from "react-router-dom";
+import { Link,} from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Post from "../../components/Post";
-import userProfile from "../../assets/img/bg1.jpg";
-import { useAuth } from "../../ContextApi/authContext";
 import axios from "axios";
 import Sppinner from "../../Animations/Sppinner";
 
 export default function Home() {
-  const [auth] = useAuth();
   const [animation, setAnimation] = useState(false);
   const [posts, setPosts] = useState([]);
-  const imgPath = `${process.env.REACT_APP_API}/${auth?.user?.picturePath}`;
 
   const getData = async () => {
     try {
@@ -52,19 +48,6 @@ export default function Home() {
             ))
           )}
         </div>
-      </div>
-
-      <div className="h_btn">
-        <Link to={"/"}>
-        <i className="fa-solid fa-home" title="Go to Home"/>
-        </Link>
-        <Link to={"/new-post"}>
-          <i className="fa-solid fa-plus h-plus" title="New Post"/>
-        </Link>
-
-        <Link to={"/user-chat"}>
-          <i className="fa-regular fa-comments" title="Chat with friends"/>
-        </Link>
       </div>
     </Layout>
   );
