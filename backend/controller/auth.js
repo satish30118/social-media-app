@@ -20,6 +20,7 @@ const register = async (req, res) => {
         message: "You have already registered so login",
         details: userExist,
       });
+      return;
     }
     const salt = 10;
     const passwordHash = await bcrypt.hash(password, salt);
