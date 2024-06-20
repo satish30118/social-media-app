@@ -73,7 +73,7 @@ Documentation Link: [(https://docs.google.com/document/d/1uoOA3_IYIEJW1g44KsMWx3
 
 ## Short Video Link
 
-Short Video Link: [(https://drive.google.com/file/d/1_bcjeUiDF_DLOj3xMOtrmarupgVOzPhY/view?usp=sharing)]
+Short Video Link: [(https://drive.google.com/file/d/14TTZ868O-jYSp8j5PMuMbQ1ZTQRWLn7a/view?usp=drivesdk)]
 
 ---
 
