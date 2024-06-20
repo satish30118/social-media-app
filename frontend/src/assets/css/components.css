@@ -1,7 +1,9 @@
 .post_comp {
+    width: 100%;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 3px;
     background-color: rgb(239, 235, 235);
+    margin-bottom: 15px;
 
     .post_sender {
         display: flex;
@@ -13,27 +15,54 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            border: 3px solid gold;
+            border: 2px solid rgb(27, 26, 24);
             margin-right: 10px;
         }
 
         a {
             text-decoration: none;
+            font-weight: 600;
         }
     }
 
-    .post_file img {
-        width: 100%;
+    .post_file {
+
+        img,
+        video {
+            width: 100%;
+            max-height: 250px;
+        }
     }
 
     .post_content {
-        padding: 10px;
+        padding: 0 10px 10px;
         text-align: justify;
         font-size: 15px;
         font-weight: 600;
         color: rgb(82, 81, 79);
+        width: 400px;
     }
-    .post_btn{
 
+    .post_btn {
+        display: flex;
+        padding: 6px 10px;
+        justify-content: space-between;
+        align-items: center;
+
+        div {
+            font-size: 15px;
+            color: rgb(63, 66, 67);
+        }
+
+        i {
+            font-size: 20px;
+            margin: 2px 5px;
+            cursor: pointer;
+            color: rgb(7, 7, 195);
+        }
+
+        .fa-heart {
+            color: red;
+        }
     }
 }

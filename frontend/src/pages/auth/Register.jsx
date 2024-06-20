@@ -39,14 +39,14 @@ const Register = () => {
 
     try {
       setAnimation(true);
-      const { data } = await axios.post(`api/v1/auth/register`, {
+      const { data } = await axios.post(`api/v1/auth/register`, 
         formData,
-      });
+      );
       setAnimation(false);
 
       if (data?.success) {
         setAuth({ ...auth, user: data?.details, token: data?.token });
-        localStorage.setItem("TANGLE_USER_DET_SAT", JSON.stringify(data));
+        localStorage.setItem("apnatangle", JSON.stringify(data));
 
         // Redirect to Dashboard Page //
         navigate(`/`);
@@ -113,7 +113,7 @@ const Register = () => {
             <div className="password">
               <input
                 type={showPassword ? "text" : "password"}
-                id="password"
+                id="cpassword"
                 placeholder="Confirm Password"
                 onChange={(e) => setCPassword(e.target.value)}
                 value={cpassword}
@@ -141,7 +141,7 @@ const Register = () => {
               </div>
               <input
                 type="file"
-                id="password"
+                id="file"
                 onChange={(e) => setPicture(e.target.files[0])}
               />
             </div>

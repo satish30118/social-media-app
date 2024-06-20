@@ -1,34 +1,69 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../assets/css/home.css";
 import Layout from "../../layouts/Layout";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Post from "../../components/Post";
-import NewPost from "../newPost/NewPost";
+import userProfile from "../../assets/img/bg1.jpg";
+import { useAuth } from "../../ContextApi/authContext";
+import axios from "axios";
+import Sppinner from "../../Animations/Sppinner";
 
 export default function Home() {
-  const navigate = useNavigate();
+  const [auth] = useAuth();
+  const [animation, setAnimation] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const imgPath = `${process.env.REACT_APP_API}/${auth?.user?.picturePath}`;
+
+  const getData = async () => {
+    try {
+      setAnimation(true);
+      const { data } = await axios.get(`api/v1/post/getposts`);
+      setAnimation(false);
+      setPosts(data?.details);
+      console.log(posts)
+    } catch (error) {
+      setAnimation(false);
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <Layout>
       <Helmet>
-        <title>Welcome to Tangle</title>
+        <title>Welcome to Apna Tangle</title>
         <meta
           name="keywords"
           content="Social media, tangle, connect, friends, chat"
         />
       </Helmet>
       <div className="home_page">
-        <Post /> <Post /> <Post /> <Post /> <Post />
+        <div className="h_posts">
+          {animation ? (
+            <Sppinner />
+          ) : (
+            posts?.map((item) => (
+              <div key={item?._id}>
+                <Post data={item} />
+              </div>
+            ))
+          )}
+        </div>
       </div>
 
       <div className="h_btn">
-        <hr />
+        <Link to={"/"}>
+        <i className="fa-solid fa-home" title="Go to Home"/>
+        </Link>
         <Link to={"/new-post"}>
-          <i className="fa-solid fa-plus h-plus" />
+          <i className="fa-solid fa-plus h-plus" title="New Post"/>
         </Link>
 
-        <Link to={"/friend-message"}>
-          <i className="fa-solid fa-message" />
+        <Link to={"/user-chat"}>
+          <i className="fa-regular fa-comments" title="Chat with friends"/>
         </Link>
       </div>
     </Layout>

@@ -1,0 +1,63 @@
+.user_chat_page {
+    position: relative;
+
+    h4{
+        text-align: center;
+        padding: 8px 0;
+        background-color: rgb(11, 145, 145);
+        text-transform: uppercase;
+        color: white;
+        font-weight: 700;
+        margin: 10px;
+    }
+
+    .chats {
+        height: 76vh;
+        padding: 10px;
+        overflow: auto;
+
+        .chat_message {
+            background-color: lightblue;
+            text-wrap: wrap;
+            padding: 6px 12px;
+            width: 80%;
+            border-radius: 8px;
+            color: rgb(28, 29, 29);
+            text-align: justify;
+            margin-bottom: 5px;
+        }
+
+        #chat_date {
+            text-align: right;
+            font-size: 13px;
+            color: rgb(86, 86, 88);
+            font-weight: 700;
+            padding-top: 8px;
+        }
+    }
+
+    .chat_input {
+        display: flex;
+        align-items: center;
+        background-color: gray;
+        padding: 10px;
+        border-bottom: 3px solid rgb(5, 47, 82);
+        border-top: 1px solid rgb(5, 47, 82);
+
+
+        input {
+            width: 100%;
+            padding: 8px 37px 8px 12px;
+            border-radius: 6px;
+        }
+
+        i {
+            font-size: 25px;
+            font-weight: 600;
+            margin-left: -35px;
+            cursor: pointer;
+            color: blue;
+        }
+
+    }
+}

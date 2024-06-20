@@ -1,10 +1,11 @@
 const express = require("express");
-const multer = require("multer")
+const multer = require("multer");
 const {
   getFeedPosts,
   getUserPosts,
   likePost,
   createPost,
+  getUserChats,
 } = require("../controller/post.js");
 const authorization = require("../middleware/authorization.js");
 const router = express.Router();
@@ -22,11 +23,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /* CREATE NEW */
-router.post("/addpost", authorization, upload.single("picture"), createPost);
+router.post("/addpost", upload.single("picture"), createPost);
 
 /* READ */
-router.get("/getposts", authorization, getFeedPosts);
-router.get("/:userId/posts", authorization, getUserPosts);
+router.get("/getposts", getFeedPosts);
+router.get("/:userId/posts", getUserPosts);
+router.get("/:userId/:receiverId/chats", getUserChats);
 
 /* UPDATE */
 router.patch("/:id/like", authorization, likePost);
