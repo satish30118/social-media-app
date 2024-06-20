@@ -4,12 +4,14 @@ import { useParams } from "react-router-dom";
 import "../../assets/css/userchat.css";
 import axios from "axios";
 import { useAuth } from "../../ContextApi/authContext";
+import Sppinner from "../../Animations/Sppinner";
 
 const UserChat = () => {
   const [auth] = useAuth();
   const { id, name } = useParams();
   const [description, setdescription] = useState("");
   const [allChats, setAllChats] = useState([]);
+  const [animation, setAnimation] = useState(false);
 
   const sendData = async (e) => {
     e.preventDefault();
@@ -34,14 +36,17 @@ const UserChat = () => {
 
   const getAllChats = async () => {
     try {
+      setAnimation(true);
       const { data } = await axios.get(
         `api/v1/post/${auth?.user?._id}/${id}/chats`
       );
+      setAnimation(false);
 
       if (data?.success) {
         setAllChats(data?.details);
       }
     } catch (error) {
+      setAnimation(false);
       console.log("RETRIEVE ALL CHATS ", error);
     }
   };
@@ -54,21 +59,28 @@ const UserChat = () => {
       <Layout>
         <div className="user_chat_page">
           <h4>chat with {name}</h4>
-          <div className="chats">
-            {allChats?.map((i) => (
-              <div
-                key={i?._id}
-                className="chat_message"
-                style={{
-                  marginLeft: `${auth?.user?._id == i?.userId ? "20%" : "0"}`,
-                  background: `${auth?.user?._id == i?.userId ? "lightgreen" : "lightblue"}`,
-                }}
-              >
-                <div>{i?.description}</div>
-                <div id="chat_date">{i?.createdAt.split("T")[0]}</div>
-              </div>
-            ))}
-          </div>
+          {animation ? (
+            <Sppinner />
+          ) : (
+            <div className="chats">
+              {allChats?.map((i) => (
+                <div
+                  key={i?._id}
+                  className="chat_message"
+                  style={{
+                    marginLeft: `${auth?.user?._id == i?.userId ? "20%" : "0"}`,
+                    background: `${
+                      auth?.user?._id == i?.userId ? "lightgreen" : "lightblue"
+                    }`,
+                  }}
+                >
+                  <div>{i?.description}</div>
+                  <div id="chat_date">{i?.createdAt.split("T")[0]}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
           <div className="chat_input">
             <input
               type="text"
