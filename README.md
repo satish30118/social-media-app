@@ -25,18 +25,9 @@ cd social-media-app
 ### Start Frontend
 
 1. Open the terminal of your code editor.
-2. Navigate to the frontend directory by running
-3. ```sh
-4.  cd frontend
-5.  ```.
-6. Install all dependencies by running
-7. ```
-8. sh npm i
-9. ```.
-10. Start the frontend by running
-11.  ```sh
-12.  npm start
-13.  ```.
+2. Navigate to the frontend directory by running `cd frontent` .
+3. Install all dependencies by running ` npm i`
+4. Start the frontend by running `npm start`.
 
 ### Start Backend
 
