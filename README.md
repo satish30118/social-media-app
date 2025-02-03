@@ -22,14 +22,21 @@ ApnaTangle is a social media app, where anyone can register and connect with his
 git clone https://github.com/satish30118/social-media-app.git
 cd social-media-app
 ```
--  sh git clone https://github.com/satish30118/social-media-app.git\
--  ```
 ### Start Frontend
 
 1. Open the terminal of your code editor.
-2. Navigate to the frontend directory by running `cd frontend`.
-3. Install all dependencies by running ` sh npm i`.
-4. Start the frontend by running `npm start`.
+2. Navigate to the frontend directory by running
+3. ```sh
+4.  cd frontend
+5.  ```.
+6. Install all dependencies by running
+7. ```
+8. sh npm i
+9. ```.
+10. Start the frontend by running
+11.  ```sh
+12.  npm start
+13.  ```.
 
 ### Start Backend
 
